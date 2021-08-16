@@ -1,0 +1,548 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Yellow Submarine</title>
+    <style type="text/css">
+
+        body {
+            text-align: center;
+            background-image: url("img/background.jpg");
+            background-color: rgba(53, 223, 255, 1);
+            background-repeat: no-repeat;
+            background-size: 100% 133%;
+            caret-color: transparent;
+            font-size: 14px;
+            position: relative;
+            font-family: "Comic Sans MS";
+        }
+
+        input {
+            text-align: center;
+            width: 80px;
+            text-align-last: center;
+        }
+
+        select {
+            text-align: center;
+            width: 140px;
+            text-align-last: center;
+        }
+
+        input[type=number] {
+            height: 14px;
+        }
+
+        input[type=checkbox] {
+            vertical-align: middle;
+            position: relative;
+            bottom: 1px;
+        }
+
+
+        td {
+            background-color: yellow;
+            background-image: url("img/cell_free_bg.jpg");
+            background-size: 100% 100%;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 1px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sub {
+            background-color: black;
+        }
+
+        .sub_marker {
+            background-color: black;
+            background-image: url("img/cheat_on.jpg");
+        }
+
+        .start_to_side {
+            background-color: black;
+            background-image: url("img/start_to_side.jpg");
+            background-size: 100% 96%;
+            background-position: bottom;
+        }
+
+        .mid_to_side {
+            background-color: black;
+            background-image: url("img/mid_to_side.jpg");
+        }
+
+        .end_to_side {
+            background-color: black;
+            background-image: url("img/end_to_side.jpg");
+        }
+
+        .start_to_bottom {
+            background-color: black;
+            background-image: url("img/start_to_bottom.jpg");
+        }
+
+        .mid_to_bottom {
+            background-color: black;
+            background-image: url("img/mid_to_bottom.jpg");
+        }
+
+        .end_to_bottom {
+            background-color: black;
+            background-image: url("img/end_to_bottom.jpg");
+        }
+
+        .numin {
+            width: 40px;
+            padding-left: 12px;
+        }
+
+        .clicknonsub {
+            background-color: gray;
+            background-image: url("img/hit_nonsub.jpg");
+        }
+
+        .clicksub {
+            background-color: red;
+            background-image: url("img/hit.jpg");
+        }
+
+        .titleImageBar {
+            float: top;
+            height: 65px;
+            width: 400px;
+            content: url("img/title.png");
+            background-color: transparent;
+            margin-left: 6%;
+        }
+
+        #ph {
+            padding: 0px 0px 0px 0px;
+            float: left;
+            margin-left: 25%;
+            font-weight: bold;
+            font-size: 20px;
+            height: 340px;
+            width: 26%;
+        }
+
+        #ch {
+            padding: 0px 0px 0px 0px;
+            float: right;
+            margin-right: 19%;
+            font-weight: bold;
+            font-size: 20px;
+            height: 340px;
+            width: 26%;
+        }
+
+        #gs {
+            margin-top: 9.65%;
+            margin-left: 43%;
+            background-color: rgba(233, 233, 240, 0.7);
+            font-weight: bold;
+            font-size: 40px;
+            letter-spacing: 3px;
+            color: red;
+            height: 60px;
+            width: 20%;
+            visibility: hidden;
+            position: absolute;
+            z-index: 10;
+        }
+
+        #menu {
+            border: 5px gold double;
+            padding: 25px 0px 0px 0px;
+            margin-top: 100px;
+            margin-left: 41.1%;
+            font-weight: bold;
+            background-image: url("img/menu_bg.jpg");
+            opacity: 0.9;
+            height: 160px;
+            width: 23%;
+            visibility: visible;
+            position: absolute;
+            z-index: 20;
+            background-size: 100% 100%;
+            color: white;
+            overflow: fragments;
+        }
+
+        #wrapper {
+            position: relative;
+            height: 100%;
+            margin-top: -25px;
+        }
+
+        #adaptive_scaling, #level_scaling {
+            width: 18px;
+            height: 18px;
+        }
+
+        .alert {
+            float: top;
+            height: 70px;
+            width: 25.05%;
+            margin-top: -5px;
+            margin-bottom: 10px;
+            background-color: rgba(233, 233, 233, 0.1);
+            margin-left: 40.43%;
+            color: red;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.3;
+
+        }
+
+        .closeBtn {
+            margin-top: -149px;
+            float: right;
+            font-size: 17px;
+            line-height: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .infoBtn {
+            margin-top: -33px;
+            margin-left: 2px;
+            float: left;
+            font-size: 17px;
+            line-height: 40px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menuBtn {
+            float: left;
+            margin-top: 390px;
+            margin-left: -48.9%;
+            letter-spacing: 3px;
+            position: absolute;
+            width: 13%;
+            text-align: center;
+        }
+
+        .menu_top
+        {
+            float: top;
+            margin-top: -25px;
+            margin-left: 34.5%;
+            color: black;
+            font-size: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            width: 100px;
+        }
+
+        .menu_left {
+            float: left;
+            margin-left: 25px;
+            margin-top: 10px;
+            line-height: 1.7;
+            text-align: left;
+            position: absolute;
+        }
+
+        .menu_right {
+            float: right;
+            margin-right: 25px;
+            margin-top: 10px;
+        }
+
+        .menu_bottom {
+            float: bottom;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        .game_stats {
+            float: top;
+            margin-left: -2px;
+            margin-top: 0px;
+            border: 6px double gold;
+            width: 15%;
+            height: 353px;
+            position: absolute;
+            background-color: rgba(0, 108, 145, 0.9);
+            font-weight: bold;
+            font-size: 12px;
+            background-image: url("img/stats_bg.jpg");
+            background-size: 100% 100%;
+            opacity: 0.9;
+        }
+
+        .spacespan {
+            letter-spacing: 2px;
+        }
+
+        #plr_acc {
+            margin-top: 180px;
+            line-height: 6px;
+        }
+
+        #cpu_acc {
+            line-height: 6px;
+        }
+
+        #total_moves {
+            line-height: 6px;
+        }
+
+        #plr_subs {
+            float: left;
+            margin-top: -4px;
+            margin-left: 0px;
+            text-align: center;
+            position: fixed;
+            width: 100px;
+        }
+
+        #cpu_subs {
+            float: right;
+            margin-top: -4px;
+            margin-right: 0px;
+            text-align: center;
+            position: relative;
+            width: 100px;
+        }
+
+        .vl {
+            border-left: 1px gold dotted;
+            height: 175px;
+            position: absolute;
+            margin-left: 49%;
+            margin-top: -10px;
+            float: top;
+        }
+
+        .bgspan {
+            background-color: rgba(0,0,0,1);
+            color: white;
+        }
+
+        h2 {
+            line-height: 1px;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+
+    </style>
+
+
+    <style>
+
+        /*
+* 	    BIG Jelly Button
+*/
+        button {
+            cursor: pointer;
+            position: relative;
+            padding: 0.3rem 3rem;
+            border-radius: 3.75rem;
+            line-height: 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+
+            border: 1px solid #012880;
+            background-image: linear-gradient(-180deg, yellow 0%, gold 100%);
+            box-shadow: 0 1rem 1.25rem 0 rgba(0, 108, 145, 0.30),
+            0 -0.25rem 1.5rem rgba(110, 15, 155, 1) inset,
+            0 0.75rem 0.5rem rgba(255, 255, 255, 0.1) inset,
+            0 0.25rem 0.5rem 0 rgba(0, 108, 145, 0.1) inset;
+        }
+
+        button span {
+            color: transparent;
+            background-image: linear-gradient(0deg, black 0%, black 100%);
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 2px 2px hsla(290, 100%, 20%, 1));
+        }
+
+        button::before {
+            content: "";
+            display: block;
+            height: 0.25rem;
+            position: absolute;
+            top: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 7.5rem);
+            background: #fff;
+            border-radius: 100%;
+
+            opacity: 0.7;
+            background-image: linear-gradient(-270deg, rgba(255, 255, 255, 0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255, 255, 255, 0.00) 100%);
+        }
+
+        button::after {
+            content: "";
+            display: block;
+            height: 0.25rem;
+            position: absolute;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 7.5rem);
+            background: #fff;
+            border-radius: 100%;
+
+            filter: blur(1px);
+            opacity: 0.05;
+            background-image: linear-gradient(-270deg, rgba(255, 255, 255, 0.00) 0%, #FFFFFF 20%, #FFFFFF 80%, rgba(255, 255, 255, 0.00) 100%);
+        }
+
+    </style>
+    <script src="src/Submarine.js"></script>
+    <script src="src/Subs.js"></script>
+    <script src="src/Main.js"></script>
+    <script src="src/Board.js"></script>
+    <script>
+
+        PLR = "0";
+        CPU = "1";
+
+        BASIC = 0;
+        ADVANCED = 1;
+        DATASEEK = 2;
+
+        USE_AI = 0;
+        TARGET_Y = 1;
+        TARGET_X = 2;
+        RAND_DIR = 3;
+        ATTEMPTS = 4;
+
+        EASY = "0";
+        MEDIUM = "1";
+        HARD = "2";
+        BRUTAL = "3";
+        BRUTAL_DISABLE_CHEAT = false;
+
+        MAX_RUN_LOOPS = 30000;
+
+        MIN_HEIGHT = 10;
+        MAX_HEIGHT = 20;
+        MIN_WIDTH = 10;
+        MAX_WIDTH = 20;
+
+        CPU_AI = true;
+        AI_TYPE = BASIC;
+        function toggleMenu() {
+            if (document.getElementById('menu').style.visibility == 'hidden')
+                document.getElementById('menu').style.visibility = 'visible'
+            else
+                document.getElementById('menu').style.visibility = 'hidden'
+        }
+
+    </script>
+</head>
+<body onbeforeunload="return Verify();">
+<div>
+    <a class="titleImageBar" href="index.html">Submarines</a>
+</div>
+<div id="alertBox" class="alert"></div>
+
+<button class="menuBtn" onClick="toggleMenu(); return false;">
+    <span>Menu</span>
+</button>
+<div id="gs">Game Over!</div>
+<div id="menu">
+    <form><span class="infoBtn" onclick="toggleInfo();">&#10067;</span></form>
+
+    <div class="menu_top">
+        Menu
+    </div>
+    <div class="menu_left">
+        <span class="bgspan">Board size:<br>
+        <br>
+        
+        <label for="level">Game Level:</label></span><br><br>
+    </div>
+    <div class="menu_right">
+        <input type="number" min="10" max="20" class="numin" id="height" value="15">
+        X
+        <input type="number" min="10" max="20" class="numin" id="width" value="15"><br><br><br>
+
+        <select id="level" name="level">
+            <option value="0">Easy</option>
+            <option value="1">Medium</option>
+            <option value="2" selected="selected">Hard</option>
+            <option value="3">Brutal</option>
+        </select><br>
+
+    </div>
+    <form>
+        <span class="closeBtn" onclick="toggleMenu();" title="Close the menu">&#10060;</span>
+        <div class="menu_bottom">
+        <input type="button"
+               onClick="Game = new Main(document.getElementById('height').value, document.getElementById('width').value);"
+               value="New Game">
+        <input type="button" onClick="Game.Cheat()" value="Cheat" id="cheatBtn" title="Reveal the CPU's submarines"
+               disabled>
+        </div>
+    </form>
+</div>
+<div class="game_stats">
+
+    <span class="spacespan">
+        <h2>Game Stats</h2><br>
+        <p><u><span class="bgspan">Remaining submarines</span></u></p>
+    </span>
+    <br>
+    <div id="plr_subs">
+        <span class="bgspan"><u>Player</u></span>
+    </div>
+    <div class="vl"></div>
+    <div id="cpu_subs">
+        <span class="bgspan"><u>Computer</u></span>
+    </div><br>
+    <span class="spacespan">
+        <p id="plr_acc"><span class="bgspan">Player Accuracy: 0%</span></p>
+        <p id="cpu_acc"><span class="bgspan">Computer Accuracy: 0%</span></p>
+        <p id="total_moves"><span class="bgspan">Total Rounds: 0</span></p>
+    </span>
+</div>
+<div id="wrapper">
+    <div id="ph"></div>
+    <div id="ch"></div>
+</div>
+</body>
+</html>
